@@ -15,6 +15,7 @@ try:
         print("Opciones del menu")
         print("1=Registrar una Venta\n2=Consultar ventas de un día específico\n3=Salir")
         opcion=int(input("Que opcion eliges : "))
+        listasumaprecio=[]
 
         if opcion==1:
             ciclo=1
@@ -24,7 +25,6 @@ try:
                 listacantidadt=[]
                 listapreciot=[]
                 listatiempot=[]
-                listasumaprecio=[]
                 
                 print(f"VENTA {contador}")
                 contadorventa.append(f"Venta{contador}")

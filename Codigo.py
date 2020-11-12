@@ -102,4 +102,12 @@ try:
                     if contador2>=2:
                         print(f"No hay registros de ventas con esta fecha :( {​​​​fecha}​​​​ ")
             except:
-                print("No se han registrado ventas")         
+                print("No se han registrado ventas") 
+        
+        elif opcion==3:
+            break
+except:
+    print(f"Ocurrió un problema {​​​​sys.exc_info()[0]}​​​​")
+
+finally:
+    print("FIN DEL CODIGO"     

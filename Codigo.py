@@ -7,7 +7,6 @@ import os
 menu=1
 separador=("*"*30)
 contador=1
-contadorventa=[]
 diccionariov={}
 try:
     while menu==1:
@@ -27,7 +26,6 @@ try:
                 listatiempot=[]
                 
                 print(f"VENTA {contador}")
-                contadorventa.append(f"Venta{contador}")
                 
                 descripcion=input("Dime la descripcion del articulo : ")
                 listadescript.append(descripcion)
@@ -48,7 +46,6 @@ try:
                 diccionariov["Precio"]=listapreciot
                 diccionariov["Tiempo"]=listatiempot
                 diccionario2=pd.DataFrame(diccionariov)
-                #diccionario2.index=contadorventa
               
                 ruta = "ventas.csv"
                 diccionario2.to_csv(ruta, index=None, mode="a", header=not os.path.isfile(ruta))

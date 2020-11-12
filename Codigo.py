@@ -64,3 +64,42 @@ try:
             print(separador)
             print(f"Este es el monto total a pagar : {sum(listasumaprecio)}")
             print(separador)
+
+        elif opcion==2:
+            try:
+                contador=1
+                contador2=0
+                print(separador+"Bienvenido al consultador de ventas"+separador)
+                print("-"*20)
+                dia=(input("Dime el dia en el que registraste la venta : "))
+                mes=input("Dime el mes en el que registraste la venta : ")
+                año=input("Dime el año en el que registraste la venta : ")
+                if len(mes)==1:
+                    mes=("0"+ mes)
+                
+                if len(dia)==1:
+                    dia2=("0"+dia+"/")
+                    fecha=(dia2+mes+"/"+año)
+                else:
+                    fecha=(dia+"/"+mes+"/"+año)
+                    print("")
+                    
+                with open ('ventas.csv') as file:
+                    reader=csv.reader(file)
+                    for registro in reader:
+                        if registro[-1]==fecha:
+                            print("*"*10 + f"VENTA {​​​​contador}​​​​" + "*"*10)
+                            print(f"Descripcion:{​​​​registro[0]}​​​​" )
+                            print(f"Piezas:{​​​​registro[1]}​​​​" )
+                            print(f"Precio:{​​​​registro[2]}​​​​" )
+                            print(f"Tiempo:{​​​​registro[3]}​​​​" )
+                            print(separador)
+                            contador=contador+1
+                        
+                        elif registro[-1]!=fecha:
+                            contador2=contador2+1
+                    
+                    if contador2>=2:
+                        print(f"No hay registros de ventas con esta fecha :( {​​​​fecha}​​​​ ")
+            except:
+                print("No se han registrado ventas")         

@@ -69,6 +69,7 @@ try:
         elif opcion==2:
             try:
                 contador=1
+                contador1=0
                 contador2=0
                 print(separador+"Bienvenido al consultador de ventas"+separador)
                 print("-"*20)
@@ -91,6 +92,7 @@ try:
                 with open ('ventas.csv') as file:
                     reader=csv.reader(file)
                     for registro in reader:
+                        contador1=contador1+1
                         if registro[-1]==fecha:
                             print("*"*10 + f"VENTA {contador}" + "*"*10)
                             print(f"Descripcion:{registro[0]}" )
@@ -103,7 +105,7 @@ try:
                         elif registro[-1]!=fecha:
                             contador2=contador2+1
                             
-                    if contador2>=2:
+                    if contador2==contador1:
                         print(f"No hay registros de ventas con esta fecha :( {fecha} ")
                
             except:
